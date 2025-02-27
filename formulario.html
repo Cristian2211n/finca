@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Cupo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('flayer.jpg'); /* Cambia esto por la URL de tu imagen */
+            background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+            background-position: center; /* Centra la imagen en la pantalla */
+            background-attachment: fixed; /* Hace que la imagen de fondo no se mueva al hacer scroll */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Hace que el body tenga al menos la altura completa de la pantalla */
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para mejorar la visibilidad */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Reserva tu Cupo</h1>
+        <form action="guardar_datos.php" method="POST">
+            <label for="cantidad">Cantidad de Cupos:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" required>
+
+            <div id="cupos_info"></div> <!-- Aquí se irán agregando los campos para cada cupo -->
+
+            <button type="submit">Enviar Reserva</button>
+        </form>
+    </div>
+
+    <script>
+        // Script para generar campos según la cantidad de cupos
+        document.getElementById('cantidad').addEventListener('input', function() {
+            let cantidad = parseInt(this.value);
+            let cuposInfoDiv = document.getElementById('cupos_info');
+            cuposInfoDiv.innerHTML = '';
+
+            if (cantidad > 0) {
+                for (let i = 1; i <= cantidad; i++) {
+                    cuposInfoDiv.innerHTML += `
+                        <h3>Cupo ${i}</h3>
+                        <label for="nombre${i}">Nombre:</label>
+                        <input type="text" id="nombre${i}" name="nombre${i}" required>
+                        
+                        <label for="cedula${i}">Cédula:</label>
+                        <input type="text" id="cedula${i}" name="cedula${i}" required>
+                        
+                        <label for="telefono${i}">Teléfono:</label>
+                        <input type="tel" id="telefono${i}" name="telefono${i}" required>
+                        
+                        <label for="reserva${i}">Reserva (valor):</label>
+                        <input type="number" id="reserva${i}" name="reserva${i}" required>
+                    `;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

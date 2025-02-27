@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento en la Finca</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Estilo para la imagen principal (Flyer grande) */
+        .hero {
+            position: relative;
+            background-image: url('flayer.jpg'); /* Cambia esta URL con el nombre de tu imagen */
+            background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+            background-position: center center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            height: 100vh; /* La imagen ocupa toda la altura de la pantalla */
+        }
+
+        /* Estilo para los enlaces sobre el flyer */
+        .links {
+            position: absolute;
+            top: 80%; /* Centra los enlaces verticalmente */
+            left: 50%; /* Centra los enlaces horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta el centro para que sea exacto */
+            text-align: center;
+            width: 100%; /* Asegura que los enlaces no se desborden */
+        }
+
+        .links a {
+            margin: 20px;
+            font-size: 1.4rem;
+            background-color: rgba(0, 123, 255, 0.7); /* Fondo azul con opacidad */
+            padding: 15px 30px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            display: inline-block; /* Para que los enlaces se alineen de forma horizontal */
+            opacity: 1; /* Para que los enlaces sean totalmente visibles */
+        }
+
+        .links a:hover {
+            background-color: rgba(0, 56, 115, 0.7); /* Cambio de color al pasar el ratón */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sección de imagen principal (Flyer grande) -->
+    <div class="hero">
+        <!-- Enlaces sobre el flyer -->
+        <div class="links">
+            <a href="finca.html">Descubre la Finca</a>
+            <a href="formulario.html">Reserva tu Cupo</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
